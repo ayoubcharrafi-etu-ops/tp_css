@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercice 7</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    .retour {
+      display: inline-block;
+      background-color: #4a90d9;
+      color: white;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+    .retour:hover { background-color: #357abd; }
+
+    h1 { color: #333; border-bottom: 2px solid #4a90d9; padding-bottom: 10px; }
+    h2 { color: #4a90d9; margin-top: 30px; }
+
+    .question {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-left: 4px solid #4a90d9;
+      border-radius: 5px;
+      padding: 15px 20px;
+      margin: 20px 0;
+    }
+    .question > p:first-child { font-weight: bold; color: #333; margin-top: 0; }
+
+    pre {
+      background-color: #2b2b2b;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .explication {
+      background-color: #e8f4fd;
+      border: 1px solid #b8d9f5;
+      border-radius: 5px;
+      padding: 12px 16px;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #2c5f8a;
+    }
+
+    .zone-demo {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 30px;
+      margin: 15px 0;
+      text-align: center;
+    }
+
+    .bouton-anime {
+      background-color: #4a90d9;
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+
+      transition: background-color 0.3s ease,
+                  transform 0.2s ease,
+                  box-shadow 0.2s ease;
+
+      box-shadow: 0 3px 10px rgba(74, 144, 217, 0.4);
+    }
+
+    .bouton-anime:hover {
+      background-color: #357abd;  
+      transform: translateY(-4px); 
+      box-shadow: 0 8px 20px rgba(74, 144, 217, 0.6); 
+    }
+
+    .bouton-anime:active {
+      transform: translateY(0);   
+      box-shadow: 0 2px 5px rgba(74, 144, 217, 0.3);
+    }
+
+    @keyframes tourner {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    @keyframes clignoter {
+      0%   { opacity: 1; }
+      50%  { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #e0e0e0;       
+      border-top-color: #4a90d9;        
+      border-radius: 50%;               
+      animation: tourner 0.8s linear infinite; 
+      margin: 0 auto 15px auto;         
+    }
+
+    .texte-chargement {
+      font-size: 14px;
+      color: #666;
+      animation: clignoter 1.5s ease-in-out infinite;
+    }
+
+    .carte-hover {
+      width: 200px;
+      background-color: #e3f2fd;
+      border: 1px solid #90caf9;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 14px;
+      cursor: pointer;
+
+      transition: all 0.3s ease;
+    }
+
+    .carte-hover:hover {
+      background-color: #4a90d9;
+      color: white;
+      transform: scale(1.05); 
+      box-shadow: 0 6px 20px rgba(74, 144, 217, 0.4);
+    }
+
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="retour">← Retour à l'accueil</a>
+
+  <h1>Exercice 7 – Transitions et animations</h1>
+
+  <h2>7.1 – Bouton animé au survol</h2>
+
+  <div class="zone-demo">
+    <p style="font-size: 13px; color: #888; margin-bottom: 15px;">↓ Survolez ou cliquez sur le bouton ↓</p>
+    <button class="bouton-anime">✨ Cliquez-moi !</button>
+  </div>
+
+  <div class="question">
+    <p>Code CSS pour le bouton animé :</p>
+    <pre>/* L'état normal du bouton */
+.bouton {
+    background-color: #4a90d9;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+
+    box-shadow: 0 3px 10px rgba(74, 144, 217, 0.4);
+}
+
+/* Au survol (hover) */
+.bouton:hover {
+    background-color: #357abd;   
+    transform: translateY(-4px); 
+    box-shadow: 0 8px 20px rgba(74, 144, 217, 0.6);
+}
+
+/* Au moment du clic */
+.bouton:active {
+    transform: translateY(0);  
+}</pre>
+    <div class="explication">
+      <strong>transition</strong> crée l'effet de glissement entre l'état normal et l'état :hover. Sans transition, le changement serait instantané et grossier.
+    </div>
+  </div>
+
+  <h2>7.2 – Spinner de chargement avec @keyframes</h2>
+
+  <div class="zone-demo">
+    <div class="spinner"></div>
+    <p class="texte-chargement">Chargement en cours...</p>
+    <br>
+    <div class="carte-hover">↑ Survolez cette carte aussi !</div>
+  </div>
+
+  <div class="question">
+    <p>Code CSS pour le spinner :</p>
+    <pre>/* ÉTAPE 1 : Définir l'animation avec @keyframes */
+@keyframes tourner {
+    from { transform: rotate(0deg); }   
+    to   { transform: rotate(360deg); } 
+}
+
+/* ÉTAPE 2 : Créer le cercle */
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #e0e0e0;    
+    border-top-color: #4a90d9;     
+    border-radius: 50%;            
+    animation: tourner 0.8s linear infinite;
+}</pre>
+    <pre>/* Bonus : animation de texte avec opacité */
+@keyframes clignoter {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+.texte-chargement {
+    animation: clignoter 1.5s ease-in-out infinite;
+}</pre>
+    <div class="explication">
+      <strong>@keyframes</strong> définit les étapes de l'animation. <strong>animation:</strong> applique cette animation à un élément. Les 4 valeurs sont : nom, durée, courbe (linear/ease), répétition (infinite = infini).
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercice 8</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    .retour {
+      display: inline-block;
+      background-color: #4a90d9;
+      color: white;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+    .retour:hover { background-color: #357abd; }
+
+    h1 { color: #333; border-bottom: 2px solid #4a90d9; padding-bottom: 10px; }
+
+    .quiz-card {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .quiz-card .numero {
+      display: inline-block;
+      background-color: #4a90d9;
+      color: white;
+      font-weight: bold;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 28px;
+      margin-right: 8px;
+      font-size: 14px;
+    }
+
+    .question-texte {
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .option {
+      padding: 10px 15px;
+      border-radius: 5px;
+      margin: 6px 0;
+      font-size: 14px;
+      border: 1px solid transparent;
+    }
+
+    .option.correcte {
+      background-color: #e8f5e9;
+      border-color: #a5d6a7;
+      color: #2e7d32;
+      font-weight: bold;
+    }
+
+    .option.incorrecte {
+      background-color: #fafafa;
+      border-color: #eeeeee;
+      color: #999;
+      text-decoration: line-through;
+    }
+
+    .explication {
+      background-color: #e8f4fd;
+      border: 1px solid #b8d9f5;
+      border-radius: 5px;
+      padding: 12px 16px;
+      margin-top: 12px;
+      font-size: 13px;
+      color: #2c5f8a;
+    }
+
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="retour">← Retour à l'accueil</a>
+
+  <h1>Exercice 8 – Quiz de révision</h1>
+  <p>Les bonnes réponses sont en vert ✅. Les mauvaises sont barrées.</p>
+
+  <!-- QUESTION 1 -->
+  <div class="quiz-card">
+    <p class="question-texte"><span class="numero">1</span> Quel sélecteur a la spécificité la plus haute ?</p>
+    <div class="option incorrecte">a) .header .nav a &nbsp; → score : 0,2,1</div>
+    <div class="option correcte">✅ b) #header a &nbsp; → score : 1,0,1 (le plus fort !)</div>
+    <div class="option incorrecte">c) header nav a &nbsp; → score : 0,0,3</div>
+    <div class="option incorrecte">d) a.active &nbsp; → score : 0,1,1</div>
+    <div class="explication">
+      <strong>Pourquoi b ?</strong> Le <code>#</code> (ID) vaut 1,0,0. Un ID bat toujours une classe ou une balise. Donc <code>#header a</code> (1,0,1) est plus fort que <code>.header .nav a</code> (0,2,1).
+    </div>
+  </div>
+
+  <!-- QUESTION 2 -->
+  <div class="quiz-card">
+    <p class="question-texte"><span class="numero">2</span> Avec box-sizing: border-box, un élément avec width: 200px et padding: 20px a une largeur totale de :</p>
+    <div class="option incorrecte">a) 240px &nbsp; → c'est le résultat sans border-box</div>
+    <div class="option correcte">✅ b) 200px &nbsp; → border-box inclut le padding dans width</div>
+    <div class="option incorrecte">c) 220px</div>
+    <div class="option incorrecte">d) 160px</div>
+    <div class="explication">
+      <strong>Pourquoi b ?</strong> Avec <code>border-box</code>, la largeur totale reste toujours égale à ce qu'on a écrit : <strong>200px</strong>. Le padding (20px x 2 = 40px) est déduit de l'intérieur, donnant 160px de contenu, mais la largeur visible reste 200px.
+    </div>
+  </div>
+
+  <!-- QUESTION 3 -->
+  <div class="quiz-card">
+    <p class="question-texte"><span class="numero">3</span> Pour centrer un élément verticalement et horizontalement avec Flexbox :</p>
+    <div class="option incorrecte">a) justify-content: center seulement → centre seulement sur l'axe horizontal</div>
+    <div class="option incorrecte">b) align-items: center seulement → centre seulement sur l'axe vertical</div>
+    <div class="option correcte">✅ c) justify-content: center ET align-items: center</div>
+    <div class="option incorrecte">d) text-align: center → ne centre pas un bloc, seulement le texte</div>
+    <div class="explication">
+      <strong>Pourquoi c ?</strong> Il faut les deux propriétés car Flexbox a deux axes : horizontal (<code>justify-content</code>) et vertical (<code>align-items</code>). Pour être centré dans les deux sens, il faut agir sur les deux axes.
+    </div>
+  </div>
+
+  <!-- QUESTION 4 -->
+  <div class="quiz-card">
+    <p class="question-texte"><span class="numero">4</span> La valeur 1fr en CSS Grid signifie :</p>
+    <div class="option incorrecte">a) 1 pixel</div>
+    <div class="option correcte">✅ b) 1 fraction de l'espace disponible</div>
+    <div class="option incorrecte">c) 1 pourcentage</div>
+    <div class="option incorrecte">d) 1 rem</div>
+    <div class="explication">
+      <strong>Pourquoi b ?</strong> <code>fr</code> vient de "fraction". Par exemple, <code>grid-template-columns: 1fr 2fr</code> crée deux colonnes : la première prend 1/3 de l'espace, la deuxième prend 2/3. C'est proportionnel à l'espace disponible.
+    </div>
+  </div>
+
+  <!-- QUESTION 5 -->
+  <div class="quiz-card">
+    <p class="question-texte"><span class="numero">5</span> L'approche "Mobile First" utilise :</p>
+    <div class="option incorrecte">a) max-width → c'est l'approche "Desktop First" (l'inverse)</div>
+    <div class="option correcte">✅ b) min-width dans les media queries</div>
+    <div class="option incorrecte">c) device-width</div>
+    <div class="option incorrecte">d) orientation</div>
+    <div class="explication">
+      <strong>Pourquoi b ?</strong> Mobile First = on commence par coder pour mobile (sans media query), puis on ajoute <code>@media (min-width: 768px)</code> pour adapter aux tablettes et <code>@media (min-width: 1024px)</code> pour les desktops. On va du petit vers le grand.
+    </div>
+  </div>
+
+
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercice 5</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    .retour {
+      display: inline-block;
+      background-color: #4a90d9;
+      color: white;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+    .retour:hover { background-color: #357abd; }
+
+    h1 { color: #333; border-bottom: 2px solid #4a90d9; padding-bottom: 10px; }
+    h2 { color: #4a90d9; margin-top: 30px; }
+
+    .question {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-left: 4px solid #4a90d9;
+      border-radius: 5px;
+      padding: 15px 20px;
+      margin: 20px 0;
+    }
+    .question > p:first-child { font-weight: bold; color: #333; margin-top: 0; }
+
+    pre {
+      background-color: #2b2b2b;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .explication {
+      background-color: #e8f4fd;
+      border: 1px solid #b8d9f5;
+      border-radius: 5px;
+      padding: 12px 16px;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #2c5f8a;
+    }
+
+    .demo-container {
+      width: 100%;
+      padding: 15px;
+      background-color: #fff9c4;
+      border: 2px solid #f9a825;
+      border-radius: 8px;
+      margin: 15px 0;
+      box-sizing: border-box;
+    }
+
+    .demo-nav-menu {
+      display: flex;
+      flex-direction: column; 
+      gap: 5px;
+      list-style: none;
+      padding: 0;
+      margin: 0 0 15px 0;
+    }
+
+    .demo-nav-menu li a {
+      display: block;
+      background-color: #4a90d9;
+      color: white;
+      padding: 8px 12px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .demo-content {
+      display: block; 
+    }
+
+    .demo-sidebar {
+      background-color: #e3f2fd;
+      border: 1px solid #90caf9;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 13px;
+      margin-bottom: 10px;
+      display: none; 
+    }
+
+    .demo-main {
+      background-color: white;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 13px;
+    }
+
+    @media (min-width: 768px) {
+      .demo-container {
+        max-width: 90%;
+        margin: 15px auto;
+      }
+
+      .demo-nav-menu {
+        flex-direction: row; 
+        gap: 10px;
+      }
+
+      .demo-sidebar {
+        display: block; 
+        width: 160px;
+        flex-shrink: 0;
+      }
+
+      .demo-content {
+        display: flex;
+        gap: 15px;
+      }
+
+      .demo-main {
+        flex: 1;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .demo-container {
+        max-width: 1200px;
+      }
+    }
+
+    .taille-ecran {
+      background-color: #e8f5e9;
+      border: 1px solid #a5d6a7;
+      border-radius: 5px;
+      padding: 10px 15px;
+      text-align: center;
+      font-weight: bold;
+      color: #2e7d32;
+      margin: 10px 0;
+      font-size: 14px;
+    }
+
+    @media (min-width: 1024px) {
+      .taille-ecran { background-color: #e3f2fd; border-color: #90caf9; color: #1565c0; }
+      .taille-ecran::before { content: "🖥️ DESKTOP — min-width: 1024px actif"; }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .taille-ecran::before { content: "📱 TABLETTE — min-width: 768px actif"; }
+    }
+
+    @media (max-width: 767px) {
+      .taille-ecran { background-color: #fff3e0; border-color: #ffcc80; color: #e65100; }
+      .taille-ecran::before { content: "📱 MOBILE — styles de base actifs"; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="retour">← Retour à l'accueil</a>
+
+  <h1>Exercice 5 – Responsive Design (Mobile First)</h1>
+
+  <p><strong>Mobile First</strong> = on écrit d'abord le CSS pour mobile, puis on ajoute des media queries pour les écrans plus grands.</p>
+
+  <div class="taille-ecran"></div>
+
+  <h2>Démo — Réduisez la fenêtre pour voir le responsive en action !</h2>
+
+  <div class="demo-container">
+    <p style="margin: 0 0 10px; font-weight: bold; font-size: 13px; color: #777;">Navigation :</p>
+    <ul class="demo-nav-menu">
+      <li><a href="#">Accueil</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <div class="demo-content">
+      <div class="demo-sidebar">
+        <strong>Sidebar</strong><br>
+        Visible sur tablette et desktop
+      </div>
+      <div class="demo-main">
+        <strong>Contenu principal</strong><br>
+        Sur mobile, la sidebar est cachée et le contenu prend toute la largeur.
+      </div>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>Code CSS complet (Mobile First) :</p>
+    <pre> 
+.container {
+    width: 100%;
+    padding: 15px;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column; 
+    gap: 5px;
+}
+
+.content  { display: block; } 
+.sidebar  { display: none; }   
+
+
+@media (min-width: 768px) {
+    .container   { max-width: 90%; margin: 0 auto; }
+    .nav-menu    { flex-direction: row; gap: 15px; } 
+    .sidebar     { display: block; width: 200px; }  
+    .content     { display: flex; gap: 1rem; }       
+}
+
+
+@media (min-width: 1024px) {
+    .container   { max-width: 1200px; }
+    .sidebar     { width: 280px; }
+}</pre>
+    <div class="explication">
+      <strong>Règle Mobile First :</strong> on utilise <code>min-width</code> dans les media queries (pas max-width). On écrit le CSS mobile sans media query, puis on "améliore" pour les grands écrans.
+    </div>
+  </div>
+
+</body>
+</html>
