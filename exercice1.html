@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercice 1</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    .retour {
+      display: inline-block;
+      background-color: #4a90d9;
+      color: white;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .retour:hover {
+      background-color: #357abd;
+    }
+
+    h1 {
+      color: #333;
+      border-bottom: 2px solid #4a90d9;
+      padding-bottom: 10px;
+    }
+
+    h2 {
+      color: #4a90d9;
+      margin-top: 30px;
+    }
+
+    h3 {
+      color: #555;
+    }
+
+    .question {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-left: 4px solid #4a90d9;
+      border-radius: 5px;
+      padding: 15px 20px;
+      margin: 20px 0;
+    }
+
+    .question p {
+      font-weight: bold;
+      color: #333;
+      margin-top: 0;
+    }
+
+    pre {
+      background-color: #2b2b2b;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .explication {
+      background-color: #e8f4fd;
+      border: 1px solid #b8d9f5;
+      border-radius: 5px;
+      padding: 12px 16px;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #2c5f8a;
+    }
+
+    .attention {
+      background-color: #fff3cd;
+      border: 1px solid #ffc107;
+      border-radius: 5px;
+      padding: 12px 16px;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #856404;
+    }
+
+    nav.main-nav {
+      background-color: #333;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin: 10px 0;
+    }
+
+    nav.main-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 15px;
+    }
+
+    nav.main-nav a {
+      color: #ccc;
+      text-decoration: none;
+    }
+    nav.main-nav a.active {
+      color: orange;
+      font-weight: bold;
+    }
+
+    article.post.featured {
+      border: 2px solid gold;
+      background-color: #fffde7;
+    }
+    article p:first-child {
+      font-style: italic;
+      color: #555;
+    }
+    nav.main-nav ul li:nth-child(even) {
+      background-color: rgba(255,255,255,0.1);
+    }
+
+    .demo-zone {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      margin: 10px 0;
+    }
+
+    article.post {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      margin: 10px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      background-color: white;
+    }
+
+    table th {
+      background-color: #4a90d9;
+      color: white;
+      padding: 10px;
+      text-align: left;
+    }
+
+    table td {
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+
+    table tr:nth-child(even) td {
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="retour">← Retour à l'accueil</a>
+
+  <h1>Exercice 1 – Sélecteurs et spécificité</h1>
+
+  <!-- ===== PARTIE 1.1 ===== -->
+  <h2>1.1 – Les sélecteurs CSS</h2>
+
+  <pre style="background-color: #706666; color: #000000; padding: 15px; border-radius: 5px; overflow-x: auto; font-size: 14px; line-height: 1.6;"><code>
+&lt;nav class="main-nav"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="/" class="active"&gt;Accueil&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/about"&gt;À propos&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;main&gt;
+  &lt;article class="post featured"&gt;
+    &lt;h2&gt;Premier article&lt;/h2&gt;
+    &lt;p&gt;Contenu...&lt;/p&gt;
+  &lt;/article&gt;
+
+  &lt;article class="post"&gt;
+    &lt;h2&gt;Deuxième article&lt;/h2&gt;
+    &lt;p&gt;Contenu...&lt;/p&gt;
+  &lt;/article&gt;
+&lt;/main&gt;
+</code></pre>
+  <!-- Question 1 -->
+  <div class="question">
+    <p>1. Sélectionnez tous les liens dans la navigation</p>
+    <pre>
+.main-nav a {
+}</pre>
+  </div>
+  <!-- Question 2 -->
+  <div class="question">
+    <p>2. Sélectionnez uniquement le lien actif</p>
+    <pre>
+.main-nav a.active {   
+}</pre>
+  </div>
+
+  <!-- Question 3 -->
+  <div class="question">
+    <p>3. Sélectionnez l'article qui a la classe featured</p>
+    <pre>
+article.post.featured {
+}</pre>
+  </div>
+
+  <!-- Question 4 -->
+  <div class="question">
+    <p>4. Sélectionnez le premier paragraphe de chaque article</p>
+    <pre>
+article p:first-child {
+}</pre>
+  </div>
+  <!-- Question 5 -->
+  <div class="question">
+    <p>5. Sélectionnez les éléments &lt;li&gt; pairs</p>
+    <pre>
+li:nth-child(even) {
+}</pre>
+  </div>
+
+  <!-- ===== PARTIE 1.2 ===== -->
+  <h2>1.2 – La spécificité</h2>
+
+  <div class="question">
+    <p>Classez ces sélecteurs par spécificité croissante :</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Ordre (du moins fort au plus fort)</th>
+          <th>Sélecteur</th>
+          <th>Score (ID, Classes, Balises)</th>
+          <th>Explication</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1 — Le moins fort</td>
+          <td><code>p</code></td>
+          <td>0, 0, 1</td>
+          <td>Juste une balise</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><code>.text</code></td>
+          <td>0, 1, 0</td>
+          <td>Une classe</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><code>p.text</code></td>
+          <td>0, 1, 1</td>
+          <td>Une classe + une balise</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><code>#main</code></td>
+          <td>1, 0, 0</td>
+          <td>Un ID (très fort !)</td>
+        </tr>
+        <tr>
+          <td>5 — Le plus fort</td>
+          <td><code>#main .text p</code></td>
+          <td>1, 1, 1</td>
+          <td>ID + classe + balise</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="question">
+    <p>Si deux règles ont la même spécificité, laquelle gagne ?</p>
+    <pre>/* Règle 1 */
+p { color: red; }
+
+/* Règle 2 */
+p { color: blue; }
+
+<p style="color: green;">--> Le paragraphe sera bleu, car cette règle est en dernier </p></pre>
+    <div class="explication">
+      C'est la <strong>règle écrite en dernier</strong> dans le fichier CSS qui gagne. C'est la "cascade" dans CSS (Cascading Style Sheets).
+    </div>
+  </div>
+
+  <div class="question">
+    <p>Pourquoi faut-il éviter !important ?</p>
+    <pre>/* À ÉVITER ! */
+p { color: red !important; }
+
+/* Cette règle sera ignorée même si elle est plus spécifique */
+#main p { color: blue; }  /* → le paragraphe reste rouge malgré l'ID ! */</pre>
+    <div class="attention">
+      ⚠️ <strong>Problème :</strong> !important écrase TOUTES les règles et rend le CSS très difficile à modifier. Si vous avez besoin de !important, c'est souvent signe que votre CSS est mal organisé. Mieux vaut augmenter la spécificité naturellement.
+    </div>
+  </div>
+
+</body>
+</html>
